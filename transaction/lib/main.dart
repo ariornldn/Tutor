@@ -34,54 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
       amount: 79.0,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: 'Test2',
-      title: 'New Backpack',
-      amount: 59.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test3',
-      title: 'New Shoes',
-      amount: 159.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test4',
-      title: 'New Wallet',
-      amount: 29.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test5',
-      title: 'New Phone',
-      amount: 599.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test6',
-      title: 'New Camera',
-      amount: 489.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test7',
-      title: 'New Jacket',
-      amount: 89.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test8',
-      title: 'New Watch',
-      amount: 269.0,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'Test9',
-      title: 'New Shirt',
-      amount: 49.0,
-      date: DateTime.now(),
-    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -148,17 +100,5 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () => _starAddNewTransaction(context),
       ),
     );
-  }
-}
-
-class edun extends StatefulWidget {
-  @override
-  _edunState createState() => _edunState();
-}
-
-class _edunState extends State<edun> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
