@@ -28,12 +28,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 'Test1',
-      title: 'New Jeans',
-      amount: 79.0,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 'Test1',
+    //   title: 'New Jeans',
+    //   amount: 79.0,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -46,11 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txamount) {
+  void _addNewTransaction(
+      String txTitle, double txamount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txamount,
-      date: DateTime.now(),
+      date: chosenDate,
       id: DateTime.now().toString(),
     );
 
@@ -72,11 +73,17 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Personal Expenses'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -87,10 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
